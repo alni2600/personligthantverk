@@ -19,3 +19,115 @@ body {
     line-height: 1.5;
 }
 
+
+
+/* ==================
+  STORA GRUPPERINGAR
+===================== */
+
+/* Strukturerar hela sidan med flexbox (Header, Main, Footer) */
+#page-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* gör att hela skärmen täcks på höjden */
+}
+
+header {
+    display: flex;
+    background-image: url("../images/wood-circle.jpg"); /* Bakgrundsbild */
+    background-color: var(--accent-color); /* Bakgrundsfärg om bilden inte visas */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    color: white;
+    justify-content: space-between;
+    padding: 0.5em 1.2em 0.5em 0.5em;
+    
+}
+
+main {
+    background-color: var(--bg-color);
+    flex: 1;
+}
+
+footer {
+    display: flex;
+    background-image: url("../images/wood-circle.jpg"); /* Bakgrundsbild */
+    background-color: var(--accent-color); /* Bakgrundsfärg om bilden inte visas */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    color: white;
+    line-height: 0.5em;
+    text-shadow: 2px 2px black;
+    justify-content: center;
+    gap: 1em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: Oswald, sans-serif;
+}
+
+
+/* ==================
+  KLASSER OCH ID
+===================== */
+
+#nav-ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.nav-list {
+    text-align: right;
+}
+
+#logotyp-logonamn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5em;
+    padding-left: 0.5em;
+    text-shadow: 2px 2px black;
+}
+
+#logotyp{
+    max-width: 60px;
+    height: auto;
+}
+
+header h2 {
+    margin: 0;
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+    font-family: Oswald, sans-serif;
+    font-weight: 700;
+    text-shadow: 2px 2px black;
+}
+
+@media (min-width: 768px) {
+    header {
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding-right: 1em;
+        padding-left: 1em;
+    }
+
+    #nav-ul {
+        flex-direction: row;
+        gap: 0.5em;
+        
+    }
+
+    #logotyp-logonamn {
+        flex-direction: row;
+    }
+
+}
