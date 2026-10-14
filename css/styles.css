@@ -16,7 +16,7 @@ body {
     color: black;
     font-family: Inter, sans-serif;
     font-size: 1.2rem;
-    line-height: 1.5;
+    line-height: 1.7;
     background-color: var(--bg-color);
 }
 
@@ -51,9 +51,12 @@ header {
 
 main {
     display: flex;
+    flex-direction: column;
+    /* gör att det är som "dras ut" för att fylla skärmen */
     flex: 1;
     background-color: var(--bg-color);
-    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 footer {
@@ -74,6 +77,18 @@ footer {
 
 h1, h2, h3, h4, h5, h6 {
     font-family: Oswald, sans-serif;
+    font-size: 2em;
+    padding: 0.3em;
+}
+
+/* gör att bilderna aldrig blir större än parent-elementet och "block" att det inte blir "extra" space på sidorna/under */
+img {
+    display: block;
+    max-inline-size: 100%;
+}
+
+p {
+    padding: 1em;
 }
 
 
@@ -92,7 +107,7 @@ h1, h2, h3, h4, h5, h6 {
     background-color: var(--accent-color);
     box-shadow: 0px 4px 10px #000000;
     z-index: 100;
-    align-items: left;
+    align-items: start;
     padding: 1em 2em 1em 2em;
 }
 
@@ -106,10 +121,6 @@ h1, h2, h3, h4, h5, h6 {
     height: auto;
 }
 
-header h2 {
-    margin: 0;
-}
-
 header a {
     color: black;
     text-decoration: none;
@@ -121,6 +132,50 @@ header a {
     display: block;
     position: absolute;
     right: 1.5em;
+}
+
+#hero {
+    /* funkar inte */
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+}
+
+.project-images {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
+    padding: 1em 1em 2em 1em;
+}
+
+.slideshow {
+    /* alla bilder får samma storlek, behåller proportionerna och klipper bort överflöd */
+    max-width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#last-slideshow-container {
+     /* gör att texten kan lägga sig i rutan */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+#last-slideshow-a {
+     /* Gör att texten "flyter" på sista bilden */
+    position: absolute;
+    /* Gör att h1 helt säkert hamnar överst */
+    z-index: 100;
+    color: white;
+    font-weight: 700;
+    font-size: 2em;
+}
+
+#last-slideshow-img {
+    /* sänker ljusstyrkan på bilden för att öka kontrasten mot länken */
+    filter: brightness(0.5);
 }
 
 @media (min-width: 768px) {
@@ -151,5 +206,10 @@ header a {
     #burger-menu {
         display: none;
     }
+
+    /* displaybilderna går från 2 till 4 i bredd på stor skärm */
+    .project-images {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
 
 }
