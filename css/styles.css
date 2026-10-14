@@ -35,8 +35,7 @@ body {
 
 header {
     display: flex;
-    /* Lägger bakgrundbild och gör kanten mot bodyn mildare om transparent är mindre än 100% (funkar om bakgrund main är en färg)*/
-    background-image: linear-gradient(to bottom, transparent 100%, var(--bg-color) 100%), url("../images/wood-circle.jpg");
+    background-image: url("../images/wood-circle.jpg");
     background-color: var(--accent-color); /* Bakgrundsfärg om bilden inte visas */
     background-repeat: no-repeat;
     background-position: center;
@@ -61,7 +60,7 @@ main {
 
 footer {
     display: flex;
-    background-image: linear-gradient(to top, transparent 100%, var(--bg-color) 100%), url("../images/wood-circle.jpg");
+    background-image: url("../images/wood-circle.jpg");
     background-color: var(--accent-color); /* Bakgrundsfärg om bilden inte visas */
     background-repeat: no-repeat;
     background-position: center;
@@ -72,7 +71,6 @@ footer {
     text-shadow: 2px 2px black;
     justify-content: center;
     gap: 1em;
-    padding-top: 0.8em;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -109,6 +107,7 @@ p {
     z-index: 100;
     align-items: start;
     padding: 1em 2em 1em 2em;
+    font-size: 1.8em;
 }
 
 /* när menyn är öppen */
