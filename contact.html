@@ -38,7 +38,22 @@
             <img src="images/apartment.jpg" alt="byt ut" id="hero">
             
             <h1>Kontakta oss</h1>
-            <P>Här ska formuläret vara</P>
+
+            <p>Vill du ha kontakt med oss? Ring oss på 0701234567 eller fyll i kontaktformuläret.</p>
+            <p>Det går också bra att skicka ett mejl till <a href="mailto:exempel@exempel.com">exempel@exempel.com</a></p>
+
+            <form id="submit">
+                <label for="name">Ditt namn</label>
+                <input type="text" id="name" autocomplete="on" placeholder="Skriv ditt namn här">
+                <label for="email">Epost</label>
+                <input type="email" id="email" autocomplete="on" placeholder="exempel@exempel.com">
+                <label for="phone">Telefonnummer</label>
+                <input type="number" id="phone" autocomplete="on" placeholder="0701234567">
+                <label for="message">Skriv ditt meddelande här</label>
+                <input type="text" id="message" autocomplete="off" placeholder="Hej! Jag vill veta...">
+                <input type="submit" id="submitButton">
+
+            </form>
 
         </main>
 
