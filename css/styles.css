@@ -60,15 +60,15 @@ main {
 
 footer {
     display: flex;
-    background-image: url("../images/wood-circle.jpg");
+    /* background-image: url("../images/wood-circle.jpg"); */
     background-color: var(--accent-color); /* Bakgrundsfärg om bilden inte visas */
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    color: white;
+    color: black;
     font-family: Oswald, sans-serif;
     font-weight: 700;
-    text-shadow: 2px 2px black;
+    /* text-shadow: 2px 2px black; */
     justify-content: center;
     gap: 1em;
 }
@@ -168,8 +168,10 @@ header a {
     /* Gör att h1 helt säkert hamnar överst */
     z-index: 100;
     color: white;
+    font-family: oswald, sanf-serif;
     font-weight: 700;
     font-size: 2em;
+
 }
 
 #last-slideshow-img {
