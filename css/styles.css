@@ -86,7 +86,7 @@ img {
 }
 
 p {
-    padding: 0.3em;
+    padding: 0.3em 0.5em;
 }
 
 
@@ -145,6 +145,17 @@ header a {
     grid-template-columns: 1fr 1fr;
     gap: 1em;
     padding: 1em 1em 2em 1em;
+}
+
+#om-oss-bilder {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1em;
+    padding: 1em 1em 2em 1em;
+}
+
+.om-oss-images {
+    padding: 1rem;
 }
 
 .gallery-item {
@@ -319,6 +330,19 @@ textarea {
     /* displaybilderna går från 2 till 4 i bredd på stor skärm */
     .project-images {
     grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+#hero {
+    max-height: 400px;
+}
+
+form {
+    width: 50%;
+    padding: 1em 2em 0.2em 2em;
+}
+
+p {
+    padding: 0.3em 3em;
 }
 
 }
