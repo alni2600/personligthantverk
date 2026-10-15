@@ -104,7 +104,7 @@ p {
     right: 0;
     background-color: var(--accent-color);
     box-shadow: 0px 4px 10px #000000;
-    z-index: 100;
+    z-index: 1;
     align-items: start;
     padding: 1em 2em 1em 2em;
     font-size: 1.4em;
@@ -134,27 +134,95 @@ header a {
 }
 
 #hero {
-    /* funkar inte */
     width: 100%;
     max-height: 200px;
     object-fit: cover;
 }
 
 .project-images {
+    /* anger hur bilderna organiseras/visas */
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1em;
     padding: 1em 1em 2em 1em;
 }
 
-.slideshow {
+.gallery-item {
     /* alla bilder får samma storlek, behåller proportionerna och klipper bort överflöd */
     max-width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-#last-slideshow-container {
+/* separat för index-html eftersom jag inte vill ha muspekaren som pekande finger på dem (de här är ju inte klickbara förutom "Se mer" */
+.gallery-item-index {
+    /* alla bilder får samma storlek, behåller proportionerna och klipper bort överflöd */
+    max-width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+ .gallery-item:hover,
+ .gallery-item:focus {
+     /* musen blir pekande finger */
+     cursor: pointer;
+ }
+
+.gallery {
+    display: block;
+}
+
+.modal {
+    /* så att modalen som default inte är synlig */
+     display: none;
+     /* så att bilden alltid hamnar på samma ställe, även vid scrollning */
+     position: fixed;
+     /* så att modal-bilden alltid hamnar överst */
+     z-index: 10;
+    /* topposition, eftersom position: fixed; */
+     padding-top: 100px;
+    /* sätter en mörk toning på hela bakgrunden så att bilden framtäder tydligare */
+     background-color: rgba(0, 0, 0, 0.9);
+     /* specificerar att det mörka mönstret ska börja helt överst, helt till vänster */
+     left: 0;
+     top: 0;
+    /* specificerar att det mörka ska täcka hela skärmen */
+     width: 100%;
+     height: 100%;
+     /* lägger till scroll inne i modulen om det skulle behövas */
+     overflow: auto;
+ }
+
+ .modal-content {
+    /* gör att modal-bilden blir max 90% av skärmen */
+     margin: auto;
+     display: block;
+     max-width: 90%;
+     max-height: 90%;
+ }
+
+ .close {
+    /* stänings"knappen" (som är ett x) */
+     position: absolute;
+     top: 15px;
+     right: 35px;
+     color: #f1f1f1;
+     font-size: 50px;
+     font-weight: bold;
+ }
+
+ /* när muspekaren hovrar över krysset eller när krysset markeras med tangentbordet */
+ .close:hover,
+ .close:focus {
+    /* då blir x grått  */
+     color: #bbb;
+     /* musen blir pekande finger */
+     cursor: pointer;
+ }
+
+
+
+#last-gallery-container {
      /* gör att texten kan lägga sig i rutan */
     display: flex;
     justify-content: center;
@@ -162,11 +230,11 @@ header a {
     position: relative;
 }
 
-#last-slideshow-a {
+#last-gallery-a {
      /* Gör att texten "flyter" på sista bilden */
     position: absolute;
     /* Gör att h1 helt säkert hamnar överst */
-    z-index: 100;
+    z-index: 5;
     color: white;
     font-family: oswald, sanf-serif;
     font-weight: 700;
@@ -174,7 +242,7 @@ header a {
 
 }
 
-#last-slideshow-img {
+#last-gallery-img {
     /* sänker ljusstyrkan på bilden för att öka kontrasten mot länken */
     filter: brightness(0.5);
 }
@@ -206,6 +274,11 @@ input {
     padding: 0.3em;
     width: 150px;
     font-weight: 600;
+}
+
+.errors {
+    text-decoration-line: underline;
+    text-decoration-color: red;
 }
 
 @media (min-width: 850px) {
