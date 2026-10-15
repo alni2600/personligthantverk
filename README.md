@@ -1,4 +1,4 @@
-# Personligt Hantverk 
+# 🔨 Personligt Hantverk 🪚
 
 Det här projektet innehåller källkod och annan information för hemsidan till **Personligt Hantverk**, en Åre-baserad enpersonsfirma inom snickeri. 
 
@@ -15,3 +15,6 @@ Hemsidan är uppdelad i följande fyra huvuddelar:
 * **Lokal förankring:** Tydligt anpassad för kunder i och runt Åre.
 * **Tillgänglighet:** Enkel navigering som snabbt leder besökaren till kontaktuppgifterna.
 * **Responsiv design:** Hemsidan är optimerad för både datorer, surfplattor och mobiltelefoner.
+
+## Publicerad hemsida:
+[https://personligthantverk.onrender.com](https://personligthantverk.onrender.com)
