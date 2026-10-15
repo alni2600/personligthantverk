@@ -74,7 +74,8 @@
             <!-- Modal, öppna stor bild -->
              <div id="gallery-modal" class="modal">
                 <span class="close" id="closeModalButton">x</span>
-                <img src="" class="modal-content" id="modal-image" alt="förstorad bild">
+                <!-- validation error om jag inte hade src eller skrev src="", därför är src nu en tom pixel -->
+                <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" class="modal-content" id="modal-image" alt="förstorad bild">
              </div>
 
         </main>
