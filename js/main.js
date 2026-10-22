@@ -37,6 +37,11 @@ function displayMenu () {
 
 //validerar inmatningen i formuläret
 function validateForm(){
+   //rensar gamla felmeddelanden 
+    errorName.innerHTML = "";
+   errorEmail.innerHTML = "";
+   errorMessasge.innerHTML = "";
+
     if (getName.value.trim() === ""){
         errorName.innerHTML = "Fyll i ditt namn";
     }
