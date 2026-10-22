@@ -35,6 +35,7 @@ function displayMenu () {
     navUlEl.classList.toggle("is-open");
 }
 
+//validerar inmatningen i formuläret
 function validateForm(){
     if (getName.value.trim() === ""){
         errorName.innerHTML = "Fyll i ditt namn";
