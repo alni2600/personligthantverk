@@ -45,7 +45,62 @@ header {
     align-items: center;
     padding: 0em 1.2em 0em 0.5em;
     position: relative;
-    border-bottom: 3px solid black;    
+    border-bottom: 3px solid black;  
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    /* gör att det är som "dras ut" för att fylla skärmen */
+    flex: 1;
+    background-color: var(--bg-color);/* ==================
+  GENERELLT FÖR HELA SIDAN
+===================== */
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+:root {
+    --bg-color: #D6C5B3;
+    --accent-color: #967f51;
+}
+
+body {
+    color: black;
+    font-family: Inter, sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.7;
+    background-color: var(--bg-color);
+}
+
+
+
+/* ==================
+  STORA GRUPPERINGAR
+===================== */
+
+/* Strukturerar hela sidan med flexbox (Header, Main, Footer) */
+#page-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* gör att hela skärmen täcks på höjden */
+}
+
+header {
+    display: flex;
+    background-image: url("../images/wood-circle.jpg");
+    background-color: var(--accent-color); /* Bakgrundsfärg om bilden inte visas */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    color: white;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0em 1.2em 0em 0.5em;
+    position: relative;
+    border-bottom: 3px solid black;  
 }
 
 main {
@@ -63,7 +118,8 @@ footer {
     color: white;
     text-shadow: 2px 2px black;
     border-top: 3px solid black;
-    background-image: url("../images/wood-circle.jpg");
+    /* bilden är ljusare i mitten och utan toningen blev kontrasten med texten dålig, även med skugga */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../images/wood-circle.jpg");
     background-color: var(--accent-color); /* Bakgrundsfärg om bilden inte visas */
     background-repeat: no-repeat;
     background-position: center;
@@ -71,7 +127,6 @@ footer {
     font-family: Oswald, sans-serif;
     font-weight: 700;
     justify-content: center;
-    gap: 1em;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -107,7 +162,7 @@ p {
     box-shadow: 0px 4px 10px #000000;
     z-index: 1;
     align-items: start;
-    padding: 0em 2em 0em 2em;
+    padding: 0;
     font-size: 1.4em;
 }
 
@@ -318,7 +373,7 @@ textarea {
     #nav-ul {
         display: flex;
         flex-direction: row;
-        gap: 1.5em;
+        gap: 0.8em;
         position: relative;
         /* får bort bakgrunden från mobilmenyn */
         background-color: transparent;
@@ -330,27 +385,329 @@ textarea {
         display: none;
     }
 
-        /* displaybilderna går från 2 till 4 i bredd på stor skärm */
+    /* displaybilderna går från 2 till 4 i bredd på stor skärm */
     .project-images {
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-    }
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
 
     #logotyp{
         max-height: 120px;
     }
 
-    #hero {
-        max-height: 400px;
+#hero {
+    max-height: 400px;
+}
+
+form {
+    width: 50%;
+    padding: 1em 2em 0.2em 2em;
+}
+
+p {
+    padding: 0.3em 3em;
+}
+
+    .om-oss-images {
+        padding: 1rem;
+    }
+}
+    align-items: center;
+    text-align: center;
+}
+
+footer {
+    display: flex;
+    color: white;
+    text-shadow: 2px 2px black;
+    border-top: 3px solid black;
+    /* bilden är ljusare i mitten och utan toningen blev kontrasten med texten dålig, även med skugga */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../images/wood-circle.jpg");
+    background-color: var(--accent-color); /* Bakgrundsfärg om bilden inte visas */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    font-family: Oswald, sans-serif;
+    font-weight: 700;
+    justify-content: center;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: Oswald, sans-serif;
+    font-size: 2em;
+    padding: 0.3em 0.3em 0em 0.3em;
+}
+
+/* gör att bilderna aldrig blir större än parent-elementet och "block" att det inte blir "extra" space på sidorna/under */
+img {
+    display: block;
+    max-inline-size: 100%;
+}
+
+p {
+    padding: 0.3em 0.5em;
+}
+
+
+/* ==================
+  KLASSER OCH ID
+===================== */
+
+#nav-ul {
+    list-style-type: none;
+    display: none;
+    flex-direction: column;
+    /* Positionering under headern i utfällt läge */
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: var(--accent-color);
+    box-shadow: 0px 4px 10px #000000;
+    z-index: 1;
+    align-items: start;
+    padding: 0;
+    font-size: 1.4em;
+}
+
+/* när menyn är öppen */
+#nav-ul.is-open {
+    display: flex; 
+}
+
+#logotyp{
+    height: 100%;
+    max-height: 80px;
+    width: auto;
+    padding: 0;
+}
+
+header a {
+    color: black;
+    text-decoration: none;
+    font-family: Oswald, sans-serif;
+    font-weight: 700;
+}
+
+#burger-menu {
+    display: block;
+    position: absolute;
+    right: 1.5em;
+}
+
+#hero {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+}
+
+.project-images {
+    /* anger hur bilderna organiseras/visas */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
+    padding: 1em 1em 2em 1em;
+}
+
+#om-oss-bilder {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0.5em;
+    padding: 1em 1em 2em 1em;
+}
+
+#om-oss-image{
+    padding: 1rem;
+}
+
+.gallery-item {
+    /* alla bilder får samma storlek, behåller proportionerna och klipper bort överflöd */
+    max-width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* separat för index-html eftersom jag inte vill ha muspekaren som pekande finger på dem (de här är ju inte klickbara förutom "Se mer" */
+.gallery-item-index {
+    /* alla bilder får samma storlek, behåller proportionerna och klipper bort överflöd */
+    max-width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+ .gallery-item:hover,
+ .gallery-item:focus {
+     /* musen blir pekande finger */
+     cursor: pointer;
+ }
+
+.gallery {
+    display: block;
+}
+
+.modal {
+    /* så att modalen som default inte är synlig */
+     display: none;
+     /* så att bilden alltid hamnar på samma ställe, även vid scrollning */
+     position: fixed;
+     /* så att modal-bilden alltid hamnar överst */
+     z-index: 10;
+    /* topposition, eftersom position: fixed; */
+     padding-top: 100px;
+    /* sätter en mörk toning på hela bakgrunden så att bilden framtäder tydligare */
+     background-color: rgba(0, 0, 0, 0.9);
+     /* specificerar att det mörka mönstret ska börja helt överst, helt till vänster */
+     left: 0;
+     top: 0;
+    /* specificerar att det mörka ska täcka hela skärmen */
+     width: 100%;
+     height: 100%;
+     /* lägger till scroll inne i modulen om det skulle behövas */
+     overflow: auto;
+ }
+
+ .modal-content {
+    /* gör att modal-bilden blir max 90% av skärmen */
+     margin: auto;
+     display: block;
+     max-width: 90%;
+     max-height: 90%;
+ }
+
+ .close {
+    /* stänings"knappen" (som är ett x) */
+     position: absolute;
+     top: 15px;
+     right: 35px;
+     color: #f1f1f1;
+     font-size: 50px;
+     font-weight: bold;
+ }
+
+ /* när muspekaren hovrar över krysset eller när krysset markeras med tangentbordet */
+ .close:hover,
+ .close:focus {
+    /* då blir x grått  */
+     color: #bbb;
+     /* musen blir pekande finger */
+     cursor: pointer;
+ }
+
+
+
+#last-gallery-container {
+     /* gör att texten kan lägga sig i rutan */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+#last-gallery-a {
+     /* Gör att texten "flyter" på sista bilden */
+    position: absolute;
+    /* Gör att h1 helt säkert hamnar överst */
+    z-index: 5;
+    color: white;
+    font-family: oswald, sanf-serif;
+    font-weight: 700;
+    font-size: 2em;
+
+}
+
+#last-gallery-img {
+    /* sänker ljusstyrkan på bilden för att öka kontrasten mot länken */
+    filter: brightness(0.5);
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    font-size: 1.1em;
+    font-weight: 600;
+    background-color: var(--accent-color);
+    padding: 1em 1em 0.2em 1em;
+    border-radius: 8px;
+    margin-bottom: 1.5em;
+    margin-top: 1em;
+    max-width: 100%;
+}
+
+input, textarea {
+    width: 100%;
+    border-radius: 4px;
+    font-size: 1em;
+    padding: 0.2em;
+    margin-bottom: 0.5em;
+}
+
+textarea {
+    min-height: 120px;
+    resize: vertical;  
+} 
+
+#submitButton{
+    margin-bottom: 1em;
+    margin-top: 0.5em;
+    padding: 0.3em;
+    width: 150px;
+    font-weight: 600; 
+}
+
+.errors {
+    text-decoration-line: underline;
+    text-decoration-color: red;
+}
+
+@media (min-width: 850px) {
+    header {
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding-right: 1em;
+        padding-left: 1em;
     }
 
-    form {
-        width: 50%;
-        padding: 1em 2em 0.2em 2em;
+    header a{
+        color: white;
+        text-shadow: 2px 2px black;
     }
 
-    p {
-        padding: 0.3em 3em;
+    #nav-ul {
+        display: flex;
+        flex-direction: row;
+        gap: 0.8em;
+        position: relative;
+        /* får bort bakgrunden från mobilmenyn */
+        background-color: transparent;
+        box-shadow: none;
+        
     }
+
+    #burger-menu {
+        display: none;
+    }
+
+    /* displaybilderna går från 2 till 4 i bredd på stor skärm */
+    .project-images {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+    #logotyp{
+        max-height: 120px;
+    }
+
+#hero {
+    max-height: 400px;
+}
+
+form {
+    width: 50%;
+    padding: 1em 2em 0.2em 2em;
+}
+
+p {
+    padding: 0.3em 3em;
+}
 
     .om-oss-images {
         padding: 1rem;
