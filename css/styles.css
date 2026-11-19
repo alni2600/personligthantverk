@@ -271,7 +271,11 @@ header a {
     color: white;
     font-family: oswald, sanf-serif;
     font-weight: 700;
-    font-size: 2em;
+    font-size: 1.5em;
+    /* gör ytterligare toning bakom länktexten */
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 0.1em 0.5em 0.2em 0.5em;
+    border-radius: 5px;
 
 }
 
