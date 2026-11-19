@@ -146,6 +146,7 @@ header a {
     grid-template-columns: 1fr 1fr;
     gap: 1em;
     padding: 1em 1em 2em 1em;
+    position: relative;
 }
 
 #om-oss-bilder {
@@ -178,10 +179,15 @@ header a {
  .gallery-item:focus {
      /* musen blir pekande finger */
      cursor: pointer;
+     border: 10px, solid, var(--accent-color);
  }
 
 .gallery {
     display: block;
+}
+
+.gallery img {
+    border-radius: 20px;
 }
 
 .modal {
@@ -221,18 +227,33 @@ header a {
      color: #f1f1f1;
      font-size: 50px;
      font-weight: bold;
+     width: 80px;
  }
 
- /* när muspekaren hovrar över krysset eller när krysset markeras med tangentbordet */
- .close:hover,
- .close:focus {
-    /* då blir x grått  */
-     color: #bbb;
-     /* musen blir pekande finger */
-     cursor: pointer;
+.arrows {
+    position: absolute;
+    cursor: pointer;
+    top: 40%;
+    padding: 16px;
+    margin-top: -50px;
+
+}
+
+ /* när muspekaren hovrar över blir det grön bakgrund */
+
+.arrows:hover, .arrows:focus,
+ .close:hover, .close:focus{
+    background-color: var(--accent-color);
+    border-radius: 10px;
+}
+
+ #arrow-left{
+    left: 20px;
  }
 
-
+ #arrow-right {
+    right: 20px;
+ }
 
 #last-gallery-container {
      /* gör att texten kan lägga sig i rutan */
@@ -250,7 +271,11 @@ header a {
     color: white;
     font-family: oswald, sanf-serif;
     font-weight: 700;
-    font-size: 2em;
+    font-size: 1.5em;
+    /* gör ytterligare toning bakom länktexten */
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 0.1em 0.5em 0.2em 0.5em;
+    border-radius: 5px;
 
 }
 
@@ -330,7 +355,7 @@ textarea {
 
     /* displaybilderna går från 2 till 4 i bredd på stor skärm */
     .project-images {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
     }
 
     #logotyp{
